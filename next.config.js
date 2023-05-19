@@ -5,6 +5,6 @@ const nextConfig = {
 
 module.exports = {
   images: {
-    domains: ["lh3.googleusercontent.com", "dn.rareblocks.xyz"],
+    domains: ["lh3.googleusercontent.com", "cdn.rareblocks.xyz"],
   },
 };
