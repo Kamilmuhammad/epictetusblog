@@ -58,6 +58,7 @@ function Login() {
                         id="email"
                         placeholder="Enter email to get started"
                         className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                        disabled
                       />
                     </div>
                   </div>
@@ -87,6 +88,7 @@ function Login() {
                         id="password"
                         placeholder="Enter your password"
                         className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                        disabled
                       />
                     </div>
                   </div>
@@ -94,9 +96,10 @@ function Login() {
                   <div>
                     <button
                       type="submit"
+                      disabled
                       className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700"
                     >
-                      Log in
+                      Mohon maaf untuk saat ini hanya dapat login lewat google
                     </button>
                   </div>
 
