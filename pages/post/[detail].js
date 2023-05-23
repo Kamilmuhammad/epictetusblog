@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { comment } from "postcss";
 import { useEffect, useState } from "react";
 
 const Detail = () => {
@@ -38,7 +39,7 @@ const Detail = () => {
         console.log(error);
         setCommentLoading(false);
       });
-  });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
