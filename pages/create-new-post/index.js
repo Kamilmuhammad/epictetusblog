@@ -43,7 +43,7 @@ function CreatePost() {
     }
     setEmpty(false);
     axios
-      .post("https://db-json-blog.vercel.app/posts", post)
+      .post("https://db-blog-json.vercel.app/posts", post)
       .then((res) => console.log(res))
       .catch((err) => console.log(err.message));
   };

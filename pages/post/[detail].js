@@ -7,14 +7,13 @@ import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { comment } from "postcss";
 import { useEffect, useState } from "react";
 
 const Detail = () => {
   const { data, loading, getNews } = useStore((state) => state);
   const router = useRouter();
   const { detail } = router.query;
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const newPost = data.filter((post) => post.title === detail);
   const [commentText, setCommentText] = useState("");
   const [comments, setComments] = useState([]);
@@ -30,7 +29,7 @@ const Detail = () => {
 
   useEffect(() => {
     axios
-      .get(`https://db-json-blog.vercel.app/comments?postId=${id}`)
+      .get(`https://db-blog-json.vercel.app/comments?postId=${id}`)
       .then((res) => {
         setComments(res.data);
         setCommentLoading(false);
@@ -39,7 +38,7 @@ const Detail = () => {
         console.log(error);
         setCommentLoading(false);
       });
-  }, []);
+  }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,7 +46,7 @@ const Detail = () => {
       alert("masukkan isi komentar");
     } else {
       axios
-        .post(`https://db-json-blog.vercel.app/comments/`, {
+        .post(`https://db-blog-json.vercel.app/comments`, {
           postId: post.id,
           comment: commentText,
           user: session.user,
@@ -163,9 +162,12 @@ const Detail = () => {
                       {session && session.user.email === comment.user.email && (
                         <button
                           onClick={() => {
-                            axios.delete(
-                              `http://localhost:8080/comments/${comment.id}`
-                            );
+                            axios
+                              .delete(
+                                `https://db-blog-json.vercel.app/comments/${comment.id}`
+                              )
+                              .then((res) => consolele.log(res))
+                              .catch((err) => console.log(err));
                           }}
                         >
                           hapus&nbsp;!
